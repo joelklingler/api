@@ -29,7 +29,7 @@ router.get('/:id/loads', async function(req, res, next) {
     }
 });
 
-router.post('/', async function(req, res, next) {
+/*router.post('/', async function(req, res, next) {
     try {
         console.log(req.body);
         res.json(await jumpdays.create(req.body));
@@ -55,6 +55,6 @@ router.delete('/:id', async function(req, res, next) {
         console.error('Error while deleting jumpday', err.message);
         next(err);
     }
-});
+});*/
 
 module.exports = router;
