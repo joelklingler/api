@@ -1,5 +1,6 @@
 const db = require('./db');
 const config = require('../config');
+const loadsService = require('./loads');
 
 async function getAll() {
     const rows = await db.query(
@@ -16,6 +17,10 @@ async function get(id) {
 
     return { rows }
 };
+
+async function getEnrichedDay(id) {
+    return loadsService.getAllRichByDay(id);
+}
 
 async function create(jumpday) {
     console.log(jumpday);
@@ -60,5 +65,6 @@ module.exports = {
     get,
     create,
     update,
-    remove
+    remove,
+    getEnrichedDay
 }

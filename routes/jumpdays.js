@@ -20,6 +20,15 @@ router.get('/:id', async function(req, res, next) {
     }
 });
 
+router.get('/:id/loads', async function(req, res, next) {
+    try {
+        res.json(await jumpdays.getEnrichedDay(req.params.id));
+    } catch (err) {
+        console.error('Error while loading rich day', err.message);
+        next(err);
+    }
+});
+
 router.post('/', async function(req, res, next) {
     try {
         console.log(req.body);
